@@ -1,5 +1,10 @@
 package com.aws.lambda.widget.model;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "Widget")
 public class Widget {
 
 	private String id;
@@ -13,6 +18,7 @@ public class Widget {
 		this.name = name;
 	}
 
+	@DynamoDBHashKey(attributeName = "id")
 	public String getId() {
 		return id;
 	}
@@ -21,6 +27,7 @@ public class Widget {
 		this.id = id;
 	}
 
+	@DynamoDBAttribute(attributeName = "name")
 	public String getName() {
 		return name;
 	}
